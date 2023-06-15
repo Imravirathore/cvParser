@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/static/css/main.87fb715a.css",
+    "main.js": "/static/js/main.71f61d60.js",
+    "static/media/cv3.png": "/static/media/cv3.cecb523abc0d16fb1d50.png",
+    "static/media/nucleo-icons.svg": "/static/media/nucleo-icons.6ff448a36d590360ffd6.svg",
+    "static/media/sidebar-3.jpg": "/static/media/sidebar-3.9992d0cef1150fe9146f.jpg",
+    "static/media/profile_img.jpg": "/static/media/profile_img.78686bd415eff676aba9.jpg",
+    "static/media/owl_2.png": "/static/media/owl_2.5a6788320736f68182e1.png",
+    "static/media/nucleo-icons.eot": "/static/media/nucleo-icons.541f8898b990ff017268.eot",
+    "static/media/nucleo-icons.ttf": "/static/media/nucleo-icons.a30d0b0201482fcfffd3.ttf",
+    "static/media/owl_1.png": "/static/media/owl_1.aca5b591aacc9ad8637a.png",
+    "static/media/cutter_3.png": "/static/media/cutter_3.5334e7bf014ba0defbdd.png",
+    "static/media/google.png": "/static/media/google.ce10a82a80def26227f0.png",
+    "static/media/nucleo-icons.woff": "/static/media/nucleo-icons.141e0c4652975b501bab.woff",
+    "static/media/nucleo-icons.woff2": "/static/media/nucleo-icons.69d4ebfdc94eab6fdb6e.woff2",
+    "static/media/owl_3.png": "/static/media/owl_3.8be28855fcb539e1dd24.png",
+    "index.html": "/index.html"
+  },
+  "entrypoints": [
+    "static/css/main.87fb715a.css",
+    "static/js/main.71f61d60.js"
+  ]
+}
