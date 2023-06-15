@@ -133,7 +133,7 @@ function Home({ authorized }) {
               <ul className="menu navigation_menu_home">
                 <li className="menu-item menu-item-has-children">
                   <a href="#" data-toggle="sub-menu">
-                    About Profilgenerator ? 
+                    About Profilgeneratorsss ? 
                   </a>
                 
                 </li>
