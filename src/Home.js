@@ -133,7 +133,7 @@ function Home({ authorized }) {
               <ul className="menu navigation_menu_home">
                 <li className="menu-item menu-item-has-children">
                   <a href="#" data-toggle="sub-menu">
-                    About Profilgeneratorsss ? 
+                    About Profilgenerator ? 
                   </a>
                 
                 </li>
@@ -458,9 +458,9 @@ function Home({ authorized }) {
                 data-wow-offset="150"
               >
                 
-                Here's what our
-                <span className="home_section_3_span">
-                  customer
+                Here's what our 
+                 <span className="home_section_3_span">
+                   Customer
                 </span>
                 <br /> has to say
               </h2>

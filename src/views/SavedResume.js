@@ -118,7 +118,18 @@ const [pending, setPending] = React.useState(true);
       format: (row) => moment(row.my_date_field).format('YYYY-MM-DD, h:mm a')
    },
     {
-      name:'Download',
+      name:'English',
+      cell: row =><button 
+      onClick={()=> downloadCv(row.id)}
+      variant="success"
+      style={{
+        color: "#fff",
+        backgroundColor: "#05cb65",
+        border: "none",
+      }}>Download</button>
+    },
+    {
+      name:'German',
       cell: row =><button 
       onClick={()=> downloadCv(row.id)}
       variant="success"
@@ -173,7 +184,7 @@ function downloadPdf(){
   let store = JSON.parse(localStorage.getItem("login"));
   let authToken = store.token;
      // Fetch the PDF content from an API
-  fetch('https://639b-182-70-252-19.ngrok-free.app/download/28', {
+  fetch('http://127.0.0.1:8000/download/21', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/pdf',

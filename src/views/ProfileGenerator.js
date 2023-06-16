@@ -175,7 +175,7 @@ let history = useHistory();
           <Row style={{ background: "#1b1b1b", height: "" }}>
 
           {/* File Pond Starts*/}
-            <Col style={{ backgroundColor: "#1b1b1b", height: "" }}>
+            <Col style={{ backgroundColor: "black", height: "" }}>
               <FilePond
                 ref={cvRef}
                 files={files}
@@ -205,7 +205,7 @@ let history = useHistory();
 
           <Row
             className="d-flex align-items-center"
-            style={{ background: "", height: "", margin: "100px 0" }}
+            style={{ background: "", padding:'30px 0', height: "", margin: "60px 0px", borderRadius:'6px' }}
           >
 
           {/* Company Name Starts*/}
@@ -274,7 +274,7 @@ let history = useHistory();
               style={{
                 backgroundColor: "",
                 height: "",
-                border: "1px solid #968f8f57",
+                
                 marginTop: "20px",
                 padding: "0 10px",
                 cursor: "pointer",
@@ -285,7 +285,7 @@ let history = useHistory();
                 ref={logoRef}
                 files={files2}
                 allowMultiple={true}
-                imagePreviewMaxHeight={100}
+                imagePreviewMaxHeight={10}
                 server={{
                   process: (fieldName, file, metadata, load) => {
                     setTimeout(() => {
@@ -307,11 +307,16 @@ let history = useHistory();
               />
             </Col>
           </Row>
-        
-          <button style={{ marginTop: "40px" }} type="submit">
-            SUBMIT
-          </button>
-        </form>
+        <div className=" text-center">
+       
+       {/*  <button variant="success" style={{ marginTop: "10px" }} type="submit">
+        SUBMIT
+      </button>
+*/}
+
+<Button type="submit" variant="success">Generate My Profile</Button>{' '}
+        </div>
+                </form>
       </Container>
 
       {/* Container 2 

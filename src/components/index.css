@@ -118,8 +118,9 @@ form.nosubmit {
   top: 0;
   z-index: 99;
   padding: 5px;
-  background-color: rgba(31, 28, 28, 0.267);
+  background-color: #000000de;
   border-bottom: 0.5px solid rgb(255 255 255 / 9%);
+  
 }
 .header-main {
   background-color: rgba(255, 0, 0, 0);
@@ -255,7 +256,7 @@ form.nosubmit {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #000000;
+  background-color: #000000e1;
   box-sizing: border-box;
 }
 .header .open-nav-menu span:before {
@@ -779,7 +780,7 @@ input:valid ~ label {
   left: 15px;
   font-size: 14px;
   padding: 0 2px;
-  background: #1b1b1b;
+  background: #000000;
 }
 
 .contact_details_profile {
