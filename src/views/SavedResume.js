@@ -41,7 +41,7 @@ createTheme('solarized', {
 }, 'dark');
 
 const resumeData = moment().format(' hh:mm: p');
-console.log('aa',resumeData);
+// console.log('aa',resumeData);
 
 function SavedResume() {
 // Loadaing for Table
@@ -72,7 +72,7 @@ const [pending, setPending] = React.useState(true);
     }
  })
  .then(response => {
-    console.log('data',response.data)
+    console.log('data',response.data.data[0].id)
     if (Array.isArray(response.data.data)) {
       setData(response.data.data);
     } else {
@@ -144,6 +144,7 @@ const [pending, setPending] = React.useState(true);
     
 
 const downloadCv = (id) =>{
+  console.log('id is',id);
   let store = JSON.parse(localStorage.getItem("login"));
   let authToken = store.token;
   var myHeaders = new Headers();
@@ -155,31 +156,35 @@ const downloadCv = (id) =>{
     headers: myHeaders,
     redirect: 'follow'
   };
+  fetch('http://127.0.0.1:8000/download/21', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/pdf',
+      'Authorization':`Bearer ${authToken}`
+    },
+  })
+    .then(response => response.blob())
+    .then(blob => {
+      // Create a download link
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'document.pdf';
 
-  fetch(`https://639b-182-70-252-19.ngrok-free.app/download/28`, requestOptions)
-  .then((response) => response.blob())
-  .then(blob => {
-    console.log(blob);
-    var audioURL = window.URL.createObjectURL(blob);
-      console.log(audioURL);
-    // audio.src = audioURL;
+      // Append the link to the document body and trigger the download
+      document.body.appendChild(link);
+      link.click();
 
-    var reader = new FileReader()
-    
-                    reader.readAsDataURL(blob)
-                    reader.onloadend = function () {
-                        var base64data = reader.result
-                        console.log(base64data)
-                    }
-    // const url = window.URL.createObjectURL(new Blob([blob]));
-    // const link = document.createElement('a');
-    // link.href = url;
-    // link.setAttribute('download', 'document.docx');
-    // document.body.appendChild(link);
-    // link.click();
-  });
+      // Clean up by removing the link
+      document.body.removeChild(link);
+    })
+    .catch(error => {
+      console.error('Error fetching PDF:', error);
+    })
+
+
 }
 
+{/* 
 function downloadPdf(){
   let store = JSON.parse(localStorage.getItem("login"));
   let authToken = store.token;
@@ -209,6 +214,7 @@ function downloadPdf(){
       console.error('Error fetching PDF:', error);
     })
 }
+*/}
 
   return (
     <>
@@ -226,7 +232,7 @@ function downloadPdf(){
         /> 
     
       </Container>
-      <button onClick={downloadPdf}>Download PDF</button>
+   {/*    <button onClick={downloadPdf}>Download PDF</button> */}
     </>
   );
 }
