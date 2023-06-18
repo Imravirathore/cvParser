@@ -11,8 +11,9 @@ body {
 
 .navbar_text h4 {
   color: #fff;
-  font-weight: bold;
   font-size: 20px;
+  font-family: "Nunito Sans";
+
 }
 
 .navbar_text p {
@@ -1607,5 +1608,33 @@ font-size: 30px;
   max-width: 150px;
   
 }
+.sidebar .nav li.active .nav-link, body > .navbar-collapse .nav li.active .nav-link
+{
+  background:-webkit-linear-gradient(
+    left,
+    rgb(72 94 203) 0%,
+    rgb(51 73 155) 60%
+  )
+}
+
+.sidebar .nav li .nav-link p, body > .navbar-collapse .nav li .nav-link p
+{
+  text-transform: capitalize !important;
+  font-size: 15px;
+  font-family: "Nunito Sans";
+
+
+}
 
 /* Sidebar CSS Ends Here */
+
+/* Pricing table on Popup */
+
+.modal.show .modal-dialog {
+  transform: translate(0, 0%);
+}
+
+.modal-content
+{
+  background-color: #1b1b1b;
+}

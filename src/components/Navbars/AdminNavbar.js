@@ -1,11 +1,43 @@
 import React, { Component } from "react";
 import { useLocation ,useHistory} from "react-router-dom";
-import { Navbar, Container, Nav, Dropdown, Button } from "react-bootstrap";
+import { Navbar, Container, Nav, Dropdown, Button,Row,Col } from "react-bootstrap";
 import '../index.css'
 import routes from "routes.js";
 import logo from "../../assets/img/profile_img.jpg"; 
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Modal from 'react-bootstrap/Modal';
+
+function MyVerticallyCenteredModal(props) {
+  return (
+    <Modal
+      {...props}
+      size="xl"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Modal heading
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <Container style={{backgroundColor:''}}>
+          <Row style={{display:'flex', justifyContent:'space-around'}}>
+          <Button variant="success">Pro</Button>{' '}
+          <Button variant="warning">Warning</Button>{' '}
+          <Button variant="danger">Danger</Button>{' '}
+          <Button variant="info">Info</Button>{' '}
+
+          </Row>
+        </Container>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+}
 
 
 // Getting Loggedin user Name and Email
@@ -13,6 +45,8 @@ import 'react-toastify/dist/ReactToastify.css';
 const userName = JSON.parse(localStorage.getItem('userName'));
 
 function Header() {
+  const [modalShow, setModalShow] = React.useState(false);
+
   let history = useHistory();
   const location = useLocation();
   const mobileSidebarToggle = (e) => {
@@ -87,8 +121,11 @@ function Header() {
                 <span className="nav_free_btn">Free Trial</span>
               </Nav.Link>
             </Nav.Item>
-            <Button variant="success"className="nav_upgrade_btn">Upgrade Plan</Button>{' '}
-            
+            <Button onClick={() => setModalShow(true)} variant="success"className="nav_upgrade_btn">Upgrade Plan</Button>{' '}
+            <MyVerticallyCenteredModal
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+          />
 
 {/* Message Icon */}
 <Dropdown as={Nav.Item}>

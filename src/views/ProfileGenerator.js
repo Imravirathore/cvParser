@@ -29,6 +29,8 @@ registerPlugin(
 );
 
 function ProfileGenerator() {
+
+  
   // File Pond
   const cvRef = useRef(null);
   const logoRef = useRef(null);
@@ -373,6 +375,7 @@ let history = useHistory();
         </form>
       </Container>
       */}
+      
     </>
   );
 }
