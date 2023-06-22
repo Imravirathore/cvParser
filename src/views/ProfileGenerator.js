@@ -29,16 +29,14 @@ registerPlugin(
 );
 
 function ProfileGenerator() {
-
-  
   // File Pond
   const cvRef = useRef(null);
   const logoRef = useRef(null);
 
-  const [files, setFiles] = useState([]);
   // console.log('cv is',files);
 
   // PAge 2 State
+  const [files, setFiles] = useState([]);
   const [files2, setFiles2] = useState([]);
   const [company, setCompany] = useState("");
   const [website, setWebsite] = useState("");
@@ -52,8 +50,8 @@ function ProfileGenerator() {
   const firstName = location.state?.firstName;
   // console.log('testing', firstName);
 
-//Use History
-let history = useHistory();
+  //Use History
+  let history = useHistory();
 
   useEffect(() => {
     console.log("FilePond instance has initialized", cvRef.current);
@@ -70,51 +68,14 @@ let history = useHistory();
     setFiles2(fileItems.map((fileItem) => fileItem.file));
   };
   //File Pond ENds
-  {
-    /* 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // testing data
-    let store = JSON.parse(localStorage.getItem("login"));
-    let authToken = store.token;
-
-    const formData = new FormData();
-    formData.append("resume", files[0]);
-    formData.append("resume_logo", files2[0]);
-    formData.append("company_name", company);
-    formData.append("officialy_company_website", website);
-    console.log(formData);
-    var myHeaders = new Headers();
-    myHeaders.append("Authorization", `Bearer ${store.token}`);
-    
-
-    var requestOptions = {
-      method: "POST",
-      headers: myHeaders,
-      body: formData,
-      redirect: "follow",
-    };
-
-    fetch(`http://127.0.0.1:8000/upload/`, requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        console.log("result is", result);
-        if (result.success) {
-          toast.success("Successfully Upload!", {
-            position: toast.POSITION.TOP_CENTER,
-            className: "toast-message",
-          });
-        }
-      })
-      .catch((error) => console.error(error));
-  };
-*/
-  }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true); // Set loading state to true
+
+    // Local storage for normal login
     let store = JSON.parse(localStorage.getItem("login"));
+    console.log("store is", store);
     let authToken = store.token;
 
     const formData = new FormData();
@@ -125,7 +86,7 @@ let history = useHistory();
     formData.append("officialy_company_website", website);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/upload/", {
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}upload/`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${authToken}`,
@@ -137,29 +98,33 @@ let history = useHistory();
         const result = await response.json();
         console.log("result is", result);
         if (result.success) {
-          toast.success("Successfully Upload!", {
+          toast.success("File uploaded successfully", {
             position: toast.POSITION.TOP_CENTER,
             className: "toast-message",
           });
           history.push("/admin/savedresume");
-
         }
       } else {
-        
+        toast.warning("First You Need To Upgrade Your Plan", {
+          position: toast.POSITION.TOP_CENTER,
+          className: "toast-message",
+        });
         throw new Error("Request failed with status: " + response.status);
-
       }
-      
     } catch (error) {
       console.error(error);
     }
     setLoading(false);
-  
+
+    setCompany("");
+    setWebsite("");
+    setPhone("");
+    setFiles([]);
+    setFiles2([]);
   };
 
   return (
     <>
-
       <Container fluid>
         <form onSubmit={handleSubmit} encType="multipart/form-data">
           <ToastContainer
@@ -175,8 +140,7 @@ let history = useHistory();
             theme="light"
           />
           <Row style={{ background: "#1b1b1b", height: "" }}>
-
-          {/* File Pond Starts*/}
+            {/* File Pond Starts*/}
             <Col style={{ backgroundColor: "black", height: "" }}>
               <FilePond
                 ref={cvRef}
@@ -207,13 +171,17 @@ let history = useHistory();
 
           <Row
             className="d-flex align-items-center"
-            style={{ background: "", padding:'30px 0', height: "", margin: "60px 0px", borderRadius:'6px' }}
+            style={{
+              background: "",
+              padding: "30px 0",
+              height: "",
+              margin: "60px 0px",
+              borderRadius: "6px",
+            }}
           >
-
-          {/* Company Name Starts*/}
+            {/* Company Name Starts*/}
 
             <Col
-              
               className=""
               style={{ backgroundColor: "", paddingLeft: "10px" }}
             >
@@ -230,8 +198,7 @@ let history = useHistory();
               </div>
             </Col>
 
-
-          {/* Website Name Starts*/}
+            {/* Website Name Starts*/}
 
             <Col style={{ backgroundColor: "", paddingRight: "10px" }}>
               <div class="input-field">
@@ -247,36 +214,35 @@ let history = useHistory();
               </div>
             </Col>
 
-          {/* Phone Number Starts*/}
+            {/* Phone Number Starts*/}
 
-          <Col
-              
-          className=""
-          style={{ backgroundColor: "", paddingLeft: "10px" }}
-        >
-          <div class="input-field">
-            <input
-              type="text"
-              required
-              spellcheck="false"
-              name="phone_no"
-              value={phone}
-              onChange={(e) => setPhone(e.target.value)}
-            />
-            <label>Phone Number</label>
-          </div>
-        </Col>
-            
+            <Col
+              className=""
+              style={{ backgroundColor: "", paddingLeft: "10px" }}
+            >
+              <div class="input-field">
+                <input
+                  type="text"
+                  required
+                  spellcheck="false"
+                  name="phone_no"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+                <label>Phone Number</label>
+              </div>
+            </Col>
+
             {loading && <Loader />}
 
-          {/* Template Logo Starts*/}
+            {/* Template Logo Starts*/}
 
             <Col
               md={12}
               style={{
                 backgroundColor: "",
                 height: "",
-                
+
                 marginTop: "20px",
                 padding: "0 10px",
                 cursor: "pointer",
@@ -309,73 +275,17 @@ let history = useHistory();
               />
             </Col>
           </Row>
-        <div className=" text-center">
-       
-       {/*  <button variant="success" style={{ marginTop: "10px" }} type="submit">
+          <div className=" text-center">
+            {/*  <button variant="success" style={{ marginTop: "10px" }} type="submit">
         SUBMIT
       </button>
 */}
-
-<Button type="submit" variant="success">Generate My Profile</Button>{' '}
-        </div>
-                </form>
-      </Container>
-
-      {/* Container 2 
-      {/*File Pond For Logo 
-      <Container fluid style={{ padding: "15px 15px", backgroundColor: "#1b1b1b" }}>
-      <h5 className="contact_details_profile">Contact Details on Profile</h5>
-        <form onSubmit={handleSubmit}>
-          <Row className="d-flex align-items-center" style={{ background: "", height: "" }}>
-
-          <Col md={6} className="" style={{ backgroundColor: "",paddingLeft:'10px', }}>
-              <div class="input-field">
-                <input type="text" required spellcheck="false" name="company" value={company} onChange={(e) => setCompany(e.target.value)} />
-                <label>Company Name</label>
-              </div>
-            </Col>
-            <Col md={6}  style={{ backgroundColor: "", paddingRight:'10px' }}>
-            <div class="input-field">
-                <input type="text" required spellcheck="false"  name="website" value={website} onChange={(e) => setWebsite(e.target.value)} />
-                <label>Website Address</label>
-              </div>
-            </Col>
-
-            <Col md={12} style={{ backgroundColor: "", height: "",border:'1px solid #968f8f57',marginTop:'20px',padding:'0 10px',cursor:'pointer', borderRadius:'6px' }}>
-              <FilePond
-                ref={pondRef}
-                files={files}
-                allowMultiple={true}
-                imagePreviewMaxHeight={100}
-                server={{
-                  process: (fieldName, file, metadata, load) => {
-                    setTimeout(() => {
-                      load(Date.now());
-                    }, 1500);
-                  },
-                  load: (source, load) => {
-                    fetch(source)
-                      .then((res) => res.blob())
-                      .then(load);
-                  },
-                }}
-                onupdatefiles={handleUpdateFiles}
-                  acceptedFileTypes={"image/png"}
-                  acceptedFileExtensions={[".jpg", ".jpeg", ".png", ".gif"]}
-                labelIdle={
-                  '<div><span class="filepond--label-action">Upload Your Template Logo</span><br/><span class="custom-icon"><i class="fa-regular fa-image"></i></span></div>'
-                }
-                
-              />
-            </Col>
-
-           
-          </Row>
-          <button style={{marginTop:'200px'}} type="submit">Next</button>
+            <Button type="submit" className="generate_my_profile">
+              Generate My Profile
+            </Button>{" "}
+          </div>
         </form>
       </Container>
-      */}
-      
     </>
   );
 }

@@ -15,10 +15,9 @@ import Home from "Home";
 import SignIn from "views/SignIn";
 import SignUp from "views/SignUp";
 import ProtectedRout from "components/Navbars/ProtectedRout";
-// import Dashboard from "views/Dashboard.js";
-// import UserProfile from "views/UserProfile.js";
-// import Typography from "views/Typography.js";
-// import MyResume from "views/MyResume";
+import ForgotPassword from "views/ForgotPassword";
+import ResetPassword from "views/ResetPassword";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Router>
@@ -26,11 +25,9 @@ root.render(
       <Route exact path="/" render={(props) => <Home/>} />
       <Route path="/signin" render={(props) => <SignIn />} />
       <Route path="/signup" render={(props) => <SignUp />} />
+      <Route path="/forgot-password" render={(props) => <ForgotPassword />} />
+      <Route path="/password-reset" render={(props) => <ResetPassword />} />
       <Route path="/admin" render={(props) => <ProtectedRout Component={AdminLayout }/> } />
-      {/* <Route path="/typography" render={(props) =>  <ProtectedRout Component={Typography }/>}/> */}
-      {/*<Route path="/myResume" render={(props) =>  <ProtectedRout Component={MyResume }/>}/> */}
-      {/*<Route path="/dashboard" render={(props) =>  <ProtectedRout Component={Dashboard }/>}/> */}
-      {/* <Route path="/userProfile" render={(props) => <ProtectedRout Component={UserProfile }/>} />  */}
     </Switch>
   </Router>
 

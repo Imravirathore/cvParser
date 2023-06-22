@@ -6,8 +6,6 @@ import Col from "react-bootstrap/Col";
 import cv from "./assets/img/cv3.png";
 import { FaStar } from "react-icons/fa";
 import { FaCheckCircle } from "react-icons/fa";
-
-
 import { FaRegSnowflake } from "react-icons/fa";
 import owl_1 from "./assets/img/owl_1.png";
 import owl_2 from "./assets/img/owl_2.png";
@@ -18,24 +16,11 @@ import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import { Link, Redirect, useHistory } from "react-router-dom";
 import cvParser from "./assets/img/cutter_3.png";
-import logo from "./assets/img/xxx.png";
-
+import logo from "./assets/img/profileGenerator.png";
 
 function Home({ authorized }) {
   const history = useHistory();
-{/* 
-  // Navbar animation
-  const headerDiv = document.getElementsByClassName("header");
-  console.log(headerDiv);
-  window.addEventListener("scroll", () => {
-    const scroll = window.scrollY;
-    if (scroll > 50) {
-      headerDiv[0].style.backgroundColor = "rgba(0, 0, 0, 0.90)";
-    } else {
-      headerDiv[0].style.backgroundColor = "transparent";
-    }
-  });
-*/}
+
   useEffect(() => {
     (() => {
       const openNavMenu = document.querySelector(".open-nav-menu"),
@@ -109,13 +94,11 @@ function Home({ authorized }) {
     history.push("/signin");
   };
 
-
   const moveToSignUp = () => {
     history.push("/signup");
   };
 
-
-  const userName = JSON.parse(localStorage.getItem('userName'));
+  const userName = JSON.parse(localStorage.getItem("userName"));
 
   return (
     <>
@@ -123,7 +106,7 @@ function Home({ authorized }) {
         <div className="navigation_menu">
           <div className="header-main">
             <div className="logo">
-              <img src={logo} alt="" srcset="" width="150" height="150"/>
+              <img src={logo} alt="" srcset="" width="150" height="150" />
             </div>
 
             <div className="menu-overlay"></div>
@@ -133,30 +116,26 @@ function Home({ authorized }) {
               <ul className="menu navigation_menu_home">
                 <li className="menu-item menu-item-has-children">
                   <a href="#" data-toggle="sub-menu">
-                    About Profilgenerator ? 
+                    About Profilgenerator ?
                   </a>
-                
                 </li>
 
                 <li className="menu-item menu-item-has-children">
                   <a href="#" data-toggle="sub-menu">
-                    Features 
+                    Features
                   </a>
-                 
                 </li>
 
                 <li className="menu-item menu-item-has-children">
                   <a href="#" data-toggle="sub-menu">
-                    Resources 
+                    Resources
                   </a>
-                  
                 </li>
 
                 <li className="menu-item menu-item-has-children">
                   <a href="#" data-toggle="sub-menu">
-                    Company 
+                    Company
                   </a>
-                
                 </li>
               </ul>
             </nav>
@@ -168,7 +147,7 @@ function Home({ authorized }) {
 
               {/* Button 2 */}
               <button className="home_navigation_signIn" onClick={moveToSignIn}>
-                { (userName) ? 'Dashboard' : 'Sign In'}
+                {userName ? "Dashboard" : "Sign In"}
               </button>
             </div>
 
@@ -181,7 +160,7 @@ function Home({ authorized }) {
 
       <section className="home-section">
         {/* Candidate Profiles Easily Generated */}
-        <Container className="home_section_1" >
+        <Container className="home_section_1">
           <Row>
             <Col
               className="wow animate__animated animate__fadeInLeft"
@@ -191,18 +170,14 @@ function Home({ authorized }) {
               <div className="star_ratings">
                 <FaStar /> <FaStar /> <FaStar /> <FaStar /> <FaStar />
                 <span className="rating_color_txt_1">
-                  
-                  Based on <span className="rating_color_txt_2">10,000+</span>  
+                  Based on <span className="rating_color_txt_2">10,000+</span>
                   reviews
                 </span>
               </div>
               <h1 className="home_section_1_heading">
                 Candidate Profiles Easily Generated
               </h1>
-              <p
-              className="home_section_1_para"
-              
-              >
+              <p className="home_section_1_para">
                 Profile generator creates a professional candidate profile from
                 the cv of your candidates fully automatically
               </p>
@@ -210,7 +185,6 @@ function Home({ authorized }) {
               <Row className="home_section_1_row">
                 <Col>
                   <p className="home_section_1_para_2">
-               
                     <span>|</span> Start work efficiently with ProfilGenerator
                   </p>
                 </Col>
@@ -222,8 +196,7 @@ function Home({ authorized }) {
                 </Col>
               </Row>
 
-              <Row className="home_section_1_row_2"
-              >
+              <Row className="home_section_1_row_2">
                 <Col
                   className="wow animate__animated animate__fadeInUp"
                   data-wow-offset="50"
@@ -249,7 +222,6 @@ function Home({ authorized }) {
             </Col>
 
             <Col
-            
               className="wow animate__animated animate__fadeInRight"
               data-wow-offset="150"
               data-wow-delay="0.5s"
@@ -270,16 +242,16 @@ function Home({ authorized }) {
           <div className="container">
             <div className="row">
               <div className="section-head col-sm-12">
-                <h4 
-                className="wow animate__animated animate__fadeInUp"
-                data-wow-offset="150"
+                <h4
+                  className="wow animate__animated animate__fadeInUp"
+                  data-wow-offset="150"
                 >
                   <span>This is how Profilgenerator works</span>
                 </h4>
                 <p
-                className="wow animate__animated animate__fadeInUp"
-                data-wow-offset="150"
-                data-wow-delay="0.5s"
+                  className="wow animate__animated animate__fadeInUp"
+                  data-wow-offset="150"
+                  data-wow-delay="0.5s"
                 >
                   Lorem Ipsum is simply dummy text of the printing and type
                   setting industry. Lorem Ipsum has been the industry's
@@ -289,89 +261,73 @@ function Home({ authorized }) {
                 </p>
               </div>
               <div className="col-lg-6 col-md-6">
-              <img
-                src={cvParser}
-                alt=""
-                width="400"
-                style={{ display: "block", marginRight: "auto" }}
-                className="wow animate__animated animate__fadeInUp"
-                data-wow-offset="150"
-                data-wow-delay="0.5s"
-              />
+                <img
+                  src={cvParser}
+                  alt=""
+                  width="400"
+                  style={{ display: "block", marginRight: "auto" }}
+                  className="wow animate__animated animate__fadeInUp"
+                  data-wow-offset="150"
+                  data-wow-delay="0.5s"
+                />
               </div>
-              
-              <div
-                className="col-lg-6 col-md-6 "
-                style={{margin:'auto 0'}}
-              >
-              <Row style={{marginBottom:'15px'}}
-              className="wow animate__animated animate__fadeInUp"
-                data-wow-offset="150"
-                data-wow-delay="1s"
-              >
-              <div className="col-sm-2">
-                   <div 
-                   className="home_section_2_number_box"
-                  >
-                    1
-                  </div> 
-              </div>
-                <div className="col-sm-9 home_section_2_content_box">
-                Drop in the CV of your candidate
-                </div>
-              </Row>
 
-              <Row style={{marginBottom:'15px'}}
-              className="wow animate__animated animate__fadeInUp"
-                data-wow-offset="140"
-                data-wow-delay="1.5s"
-              >
-              <div className="col-sm-2">
-                   <div className="home_section_2_number_box_txt"
-                   
-                  >
-                    2
-                  </div> 
-                </div>
-                <div className="col-sm-9 home_section_2_content_box">
-                Choose the template that suits for your business
-                </div>
-              </Row>
+              <div className="col-lg-6 col-md-6 " style={{ margin: "auto 0" }}>
+                <Row
+                  style={{ marginBottom: "15px" }}
+                  className="wow animate__animated animate__fadeInUp"
+                  data-wow-offset="150"
+                  data-wow-delay="1s"
+                >
+                  <div className="col-sm-2">
+                    <div className="home_section_2_number_box">1</div>
+                  </div>
+                  <div className="col-sm-9 home_section_2_content_box">
+                    Drop in the CV of your candidate
+                  </div>
+                </Row>
 
-              <Row style={{marginBottom:'15px'}}
-              className="wow animate__animated animate__fadeInUp"
-                data-wow-offset="140"
-                data-wow-delay="2s"
-              >
-              <div className="col-sm-2">
-                   <div
-                    className="home_section_2_number_box_txt"
-                  >
-                    3
-                  </div> 
-                </div>
-                <div className="col-sm-9 home_section_2_content_box" >
-                Select the type of file you want to generate
-                </div>
-              </Row>
+                <Row
+                  style={{ marginBottom: "15px" }}
+                  className="wow animate__animated animate__fadeInUp"
+                  data-wow-offset="140"
+                  data-wow-delay="1.5s"
+                >
+                  <div className="col-sm-2">
+                    <div className="home_section_2_number_box_txt">2</div>
+                  </div>
+                  <div className="col-sm-9 home_section_2_content_box">
+                    Choose the template that suits for your business
+                  </div>
+                </Row>
 
-              <Row style={{marginBottom:'15px'}}
-              className="wow animate__animated animate__fadeInUp"
-                data-wow-offset="130"
-                data-wow-delay="2.5s"
-              >
-              <div className="col-sm-2">
-                   <div
-                   className="home_section_2_number_box_txt"
-                  >
-                    4
-                  </div> 
-                </div>
-                <div className="col-sm-9 home_section_2_content_box" >
-                Click on generate and receive your profile
-                </div>
-              </Row>
+                <Row
+                  style={{ marginBottom: "15px" }}
+                  className="wow animate__animated animate__fadeInUp"
+                  data-wow-offset="140"
+                  data-wow-delay="2s"
+                >
+                  <div className="col-sm-2">
+                    <div className="home_section_2_number_box_txt">3</div>
+                  </div>
+                  <div className="col-sm-9 home_section_2_content_box">
+                    Select the type of file you want to generate
+                  </div>
+                </Row>
 
+                <Row
+                  style={{ marginBottom: "15px" }}
+                  className="wow animate__animated animate__fadeInUp"
+                  data-wow-offset="130"
+                  data-wow-delay="2.5s"
+                >
+                  <div className="col-sm-2">
+                    <div className="home_section_2_number_box_txt">4</div>
+                  </div>
+                  <div className="col-sm-9 home_section_2_content_box">
+                    Click on generate and receive your profile
+                  </div>
+                </Row>
               </div>
             </div>
           </div>
@@ -380,7 +336,7 @@ function Home({ authorized }) {
         {/* Choose from over 10+ */}
 
         <Container>
-          <Row style={{ paddingTop: "100px", paddingBottom:'50px' }}>
+          <Row style={{ paddingTop: "100px", paddingBottom: "50px" }}>
             <Col md={8}>
               <h4
                 style={{
@@ -388,11 +344,10 @@ function Home({ authorized }) {
                   fontFamily: "Nunito Sans",
                   fontWeight: "700",
                   margin: "0px",
-                  fontSize:'35px'
+                  fontSize: "35px",
                 }}
               >
-                Choose from over 10+  
-                cutting edge products
+                Choose from over 10+ cutting edge products
               </h4>
             </Col>
 
@@ -448,27 +403,21 @@ function Home({ authorized }) {
         </Container>
 
         {/* Here's what our customer has to say */}
-        <Container className="home_section_3"
-        >
+        <Container className="home_section_3">
           <Row>
             <Col>
               <h2
-               
                 className="wow animate__animated animate__fadeInUp home_section_3_h2"
                 data-wow-offset="150"
               >
-                
-                Here's what our 
-                 <span className="home_section_3_span">
-                   Customer
-                </span>
+                Here's what our{" "}
+                <span className="home_section_3_span"> Customer </span>
                 <br /> has to say
               </h2>
               <button
                 className="wow animate__animated animate__fadeInUp home_section_3_btn"
                 data-wow-offset="150"
               >
-                
                 Read Customer Stories
               </button>
             </Col>
@@ -476,13 +425,11 @@ function Home({ authorized }) {
 
           {/*  2*4 sections */}
           <Row
-            style={{ paddingTop: "30px"}}
+            style={{ paddingTop: "30px" }}
             className="gx-5 wow animate__animated animate__fadeInUp"
             data-wow-offset="150"
           >
-            <Col className="review_1"
-              
-            >
+            <Col className="review_1">
               <h6 className="customer_review_h6">
                 <span style={{ color: "#fff", fontSize: "30px" }}>&#8220;</span>{" "}
                 Super accurate, i can only recommend{" "}
@@ -501,17 +448,18 @@ function Home({ authorized }) {
                   width="50"
                   style={{ borderRadius: "50px" }}
                 />
-                <h6 className="client_name">Dan Silverstone
-                  <span className="client_designation">CEO Top Talent Search</span>
+                <h6 className="client_name">
+                  Dan Silverstone
+                  <span className="client_designation">
+                    CEO Top Talent Search
+                  </span>
                 </h6>
               </div>
             </Col>
 
-            <Col className="review_2"
-            >
+            <Col className="review_2">
               <h6 className="customer_review_h6">
-                <span>&#8220;</span>{" "}
-                Amazing tool! Saved me months{" "}
+                <span>&#8220;</span> Amazing tool! Saved me months{" "}
                 <span>&#8221;</span>
               </h6>
               <p className="customer_review_p">
@@ -519,7 +467,7 @@ function Home({ authorized }) {
                 profiles. The profiles are always top-notch, and it has made the
                 recruitment process so much easier for me.
               </p>
-                  
+
               <div className="client_name_div">
                 <img
                   src={logoss}
@@ -528,9 +476,11 @@ function Home({ authorized }) {
                   width="50"
                   style={{ borderRadius: "50px" }}
                 />
-                <h6 className="client_name">Gil Poster
-                <span className="client_designation" >Management, Talent Hunters Inc</span>
-                
+                <h6 className="client_name">
+                  Gil Poster
+                  <span className="client_designation">
+                    Management, Talent Hunters Inc
+                  </span>
                 </h6>
               </div>
             </Col>
@@ -539,11 +489,9 @@ function Home({ authorized }) {
           <Row
             className="gx-5 wow animate__animated animate__fadeInUp"
             data-wow-offset="150"
-            style={{ padding: "0px 0"}}
+            style={{ padding: "0px 0" }}
           >
-            <Col
-            className="review_2"
-            >
+            <Col className="review_2">
               <h6 className="customer_review_h6">
                 <span>&#8220;</span>
                 The first one, that really works
@@ -562,15 +510,16 @@ function Home({ authorized }) {
                   width="50"
                   style={{ borderRadius: "50px" }}
                 />
-                <h6 className="client_name">Thorben Winter
-                <span className="client_designation">Director Hiringtalentside</span>
+                <h6 className="client_name">
+                  Thorben Winter
+                  <span className="client_designation">
+                    Director Hiringtalentside
+                  </span>
                 </h6>
               </div>
             </Col>
 
-            <Col
-            className="review_1"
-            >
+            <Col className="review_1">
               <h6 className="customer_review_h6">
                 <span style={{ color: "#fff", fontSize: "30px" }}>&#8220;</span>{" "}
                 More time for important tasks{" "}
@@ -581,9 +530,7 @@ function Home({ authorized }) {
                 candidate profiles has never been easier. Now we can cocentrate
                 on more important tasks.
               </p>
-              <div
-                className="client_name_div"
-              >
+              <div className="client_name_div">
                 <img
                   src={logoss}
                   alt=""
@@ -591,8 +538,9 @@ function Home({ authorized }) {
                   width="50"
                   style={{ borderRadius: "50px" }}
                 />
-                <h6 className="client_name">Noel Fuchs
-                <span className="client_designation">CEO Plantside</span>
+                <h6 className="client_name">
+                  Noel Fuchs
+                  <span className="client_designation">CEO Plantside</span>
                 </h6>
               </div>
             </Col>
@@ -602,10 +550,7 @@ function Home({ authorized }) {
         {/* PricingTable */}
         <Container fluid>
           <div id="generic_price_table">
-            <section
-            className="home_section_4"
-             
-            >
+            <section className="home_section_4">
               <div class="container">
                 <div class="row">
                   <div
@@ -614,7 +559,7 @@ function Home({ authorized }) {
                   >
                     <div class="section-head col-sm-12">
                       <h4>
-                        <span>Our Affordable Plans  </span>
+                        <span>Our Affordable Plans </span>
                       </h4>
                       <p>
                         Lorem Ipsum is simply dummy text of the printing and
@@ -630,10 +575,12 @@ function Home({ authorized }) {
               </div>
               <div class="container">
                 <div class="row">
-                  <div class="col-lg-3 col-md-6 
+                  <div
+                    class="col-lg-3 col-md-6 
                   wow animate__animated animate__fadeInUp"
-              data-wow-offset="150"
-              data-wow-delay="0.2s">
+                    data-wow-offset="150"
+                    data-wow-delay="0.2s"
+                  >
                     <div class="generic_content clearfix">
                       <div class="generic_head_price clearfix">
                         <div class="generic_head_content clearfix">
@@ -653,11 +600,16 @@ function Home({ authorized }) {
                       <div class="generic_feature_list">
                         <ul>
                           <li>
-                          <FaCheckCircle className="pricing_icon"/> <span className="pricing_icon_text_span">5 Profiles Per
-                            Month </span>
+                            <FaCheckCircle className="pricing_icon" />{" "}
+                            <span className="pricing_icon_text_span">
+                              5 Profiles Per Month{" "}
+                            </span>
                           </li>
                           <li>
-                          <FaCheckCircle className="pricing_icon"/>  <span className="pricing_icon_text_span">1 User Access </span>
+                            <FaCheckCircle className="pricing_icon" />{" "}
+                            <span className="pricing_icon_text_span">
+                              1 User Access{" "}
+                            </span>
                           </li>
                           <li style={{ visibility: "hidden" }}>
                             <span>12</span> Accounts
@@ -672,17 +624,17 @@ function Home({ authorized }) {
                       </div>
 
                       <div class="generic_price_btn clearfix">
-                        <Link onClick={moveToSignUp}>
-                          Get Starter Plan
-                        </Link>
+                        <Link onClick={moveToSignUp}>Get Starter Plan</Link>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-6
+                  <div
+                    class="col-lg-3 col-md-6
                   wow animate__animated animate__fadeInUp"
-              data-wow-offset="150"
-              data-wow-delay="0.4s
-                  ">
+                    data-wow-offset="150"
+                    data-wow-delay="0.4s
+                  "
+                  >
                     <div class="generic_content active clearfix">
                       <div class="generic_head_price clearfix">
                         <div class="generic_head_content clearfix">
@@ -694,8 +646,10 @@ function Home({ authorized }) {
 
                         <div class="generic_price_tag clearfix">
                           <span class="price">
-                            <span class="currency">$ 48.90 / <span style={{color:'#405cf5'}}>Month</span> </span>
-                        
+                            <span class="currency">
+                              $ 48.90 /{" "}
+                              <span style={{ color: "#405cf5" }}>Month</span>{" "}
+                            </span>
                           </span>
                         </div>
                       </div>
@@ -703,37 +657,47 @@ function Home({ authorized }) {
                       <div class="generic_feature_list">
                         <ul>
                           <li>
-                          <FaCheckCircle className="pricing_icon"/>  <span className="pricing_icon_text_span">25 Profiles Per
-                            Month</span> 
-                          
+                            <FaCheckCircle className="pricing_icon" />{" "}
+                            <span className="pricing_icon_text_span">
+                              25 Profiles Per Month
+                            </span>
                           </li>
                           <li>
-                          <FaCheckCircle className="pricing_icon"/>   <span className="pricing_icon_text_span">Your Branding</span> 
+                            <FaCheckCircle className="pricing_icon" />{" "}
+                            <span className="pricing_icon_text_span">
+                              Your Branding
+                            </span>
                           </li>
                           <li>
-                          <FaCheckCircle className="pricing_icon"/>  <span className="pricing_icon_text_span">Removed Watermark</span> 
+                            <FaCheckCircle className="pricing_icon" />{" "}
+                            <span className="pricing_icon_text_span">
+                              Removed Watermark
+                            </span>
                           </li>
                           <li>
-                          <FaCheckCircle className="pricing_icon"/>  <span className="pricing_icon_text_span">2  Users</span>   
+                            <FaCheckCircle className="pricing_icon" />{" "}
+                            <span className="pricing_icon_text_span">
+                              2 Users
+                            </span>
                           </li>
-                          <li style={{visibility:'hidden'}}>
+                          <li style={{ visibility: "hidden" }}>
                             <span>24/7</span> Support
                           </li>
                         </ul>
                       </div>
 
                       <div class="generic_price_btn clearfix">
-                      <Link onClick={moveToSignUp}>
-                      Get Essential Plan
-                    </Link>
+                        <Link onClick={moveToSignUp}>Get Essential Plan</Link>
                       </div>
                     </div>
                   </div>
-                  <div class="col-lg-3 col-md-6
+                  <div
+                    class="col-lg-3 col-md-6
                   wow animate__animated animate__fadeInUp"
-              data-wow-offset="150"
-              data-wow-delay="0.6s
-                  ">
+                    data-wow-offset="150"
+                    data-wow-delay="0.6s
+                  "
+                  >
                     <div class="generic_content clearfix">
                       <div class="generic_head_price clearfix">
                         <div class="generic_head_content clearfix">
@@ -745,8 +709,10 @@ function Home({ authorized }) {
 
                         <div class="generic_price_tag clearfix">
                           <span class="price">
-                            <span class="currency">$ 87.90 / <span style={{color:'#405cf5'}}>Month</span> </span>
-
+                            <span class="currency">
+                              $ 87.90 /{" "}
+                              <span style={{ color: "#405cf5" }}>Month</span>{" "}
+                            </span>
                           </span>
                         </div>
                       </div>
@@ -754,37 +720,44 @@ function Home({ authorized }) {
                       <div class="generic_feature_list">
                         <ul>
                           <li>
-                          <FaCheckCircle className="pricing_icon"/> <span style={{color:'#fff'}}>50 Profiles per month</span>   
+                            <FaCheckCircle className="pricing_icon" />{" "}
+                            <span style={{ color: "#fff" }}>
+                              50 Profiles per month
+                            </span>
                           </li>
                           <li>
-                          <FaCheckCircle className="pricing_icon"/>  <span style={{color:'#fff'}}>Your branding</span> 
+                            <FaCheckCircle className="pricing_icon" />{" "}
+                            <span style={{ color: "#fff" }}>Your branding</span>
                           </li>
                           <li>
-                          <FaCheckCircle className="pricing_icon"/>  <span style={{color:'#fff'}}>Removed Watermark</span> 
+                            <FaCheckCircle className="pricing_icon" />{" "}
+                            <span style={{ color: "#fff" }}>
+                              Removed Watermark
+                            </span>
                           </li>
                           <li>
-                          <FaCheckCircle className="pricing_icon"/> <span style={{color:'#fff'}}>4 Users</span> 
+                            <FaCheckCircle className="pricing_icon" />{" "}
+                            <span style={{ color: "#fff" }}>4 Users</span>
                           </li>
-                          <li style={{visibility:'hidden'}}>
+                          <li style={{ visibility: "hidden" }}>
                             <span>24/7</span> Support
                           </li>
                         </ul>
                       </div>
 
                       <div class="generic_price_btn clearfix">
-                      <Link onClick={moveToSignUp}>
-                      Get Pro Plan
-                    </Link>
+                        <Link onClick={moveToSignUp}>Get Pro Plan</Link>
                       </div>
-                      
                     </div>
                   </div>
 
-                  <div class="col-lg-3 col-md-6
+                  <div
+                    class="col-lg-3 col-md-6
                   wow animate__animated animate__fadeInUp"
-              data-wow-offset="150"
-              data-wow-delay="0.8s
-                  ">
+                    data-wow-offset="150"
+                    data-wow-delay="0.8s
+                  "
+                  >
                     <div class="generic_content active clearfix">
                       <div class="generic_head_price clearfix">
                         <div class="generic_head_content clearfix">
@@ -796,9 +769,10 @@ function Home({ authorized }) {
 
                         <div class="generic_price_tag clearfix">
                           <span class="price">
-                         
-                            <span class="currency">$ 149.90 / <span style={{color:'#405cf5'}}>Month</span> </span>
-
+                            <span class="currency">
+                              $ 149.90 /{" "}
+                              <span style={{ color: "#405cf5" }}>Month</span>{" "}
+                            </span>
                           </span>
                         </div>
                       </div>
@@ -806,28 +780,33 @@ function Home({ authorized }) {
                       <div class="generic_feature_list">
                         <ul>
                           <li>
-                          <FaCheckCircle className="pricing_icon"/>   <span style={{color:'#fff'}}>Unlimited Profiles</span>
+                            <FaCheckCircle className="pricing_icon" />{" "}
+                            <span style={{ color: "#fff" }}>
+                              Unlimited Profiles
+                            </span>
                           </li>
                           <li>
-                          <FaCheckCircle className="pricing_icon"/>   <span style={{color:'#fff'}}>Your Branding</span> 
+                            <FaCheckCircle className="pricing_icon" />{" "}
+                            <span style={{ color: "#fff" }}>Your Branding</span>
                           </li>
                           <li>
-                          <FaCheckCircle className="pricing_icon"/> <span style={{color:'#fff'}}>Removed Watermark</span> 
+                            <FaCheckCircle className="pricing_icon" />{" "}
+                            <span style={{ color: "#fff" }}>
+                              Removed Watermark
+                            </span>
                           </li>
                           <li>
-                          <FaCheckCircle className="pricing_icon"/>  <span style={{color:'#fff'}}>8 Users
-                    </span> 
+                            <FaCheckCircle className="pricing_icon" />{" "}
+                            <span style={{ color: "#fff" }}>8 Users</span>
                           </li>
-                          <li style={{visibility:'hidden'}}>
+                          <li style={{ visibility: "hidden" }}>
                             <span>24/7</span> Support
                           </li>
                         </ul>
                       </div>
 
                       <div class="generic_price_btn clearfix">
-                      <Link onClick={moveToSignUp}>
-                      Get Ultimate Plan
-                    </Link>
+                        <Link onClick={moveToSignUp}>Get Ultimate Plan</Link>
                       </div>
                     </div>
                   </div>
@@ -843,8 +822,10 @@ function Home({ authorized }) {
           <div class="pt-5 pb-5">
             <div class="container">
               <div class="row">
-                <div class="section-head col-sm-12 wow animate__animated animate__fadeInUp"
-                    data-wow-offset="150">
+                <div
+                  class="section-head col-sm-12 wow animate__animated animate__fadeInUp"
+                  data-wow-offset="150"
+                >
                   <h4>
                     <span>Why Choose Us?</span>{" "}
                   </h4>
@@ -856,9 +837,11 @@ function Home({ authorized }) {
                     book.
                   </p>
                 </div>
-                <div class="col-lg-4 col-sm-6  wow animate__animated animate__fadeInUp"
-              data-wow-offset="150"
-              data-wow-delay="0.4s">
+                <div
+                  class="col-lg-4 col-sm-6  wow animate__animated animate__fadeInUp"
+                  data-wow-offset="150"
+                  data-wow-delay="0.4s"
+                >
                   <div class="save_time_card">
                     {" "}
                     <span class="icon feature_box_col_one">
@@ -871,9 +854,11 @@ function Home({ authorized }) {
                     </p>
                   </div>
                 </div>
-                <div class="col-lg-4 col-sm-6  wow animate__animated animate__fadeInUp"
-              data-wow-offset="150"
-              data-wow-delay="0.6s">
+                <div
+                  class="col-lg-4 col-sm-6  wow animate__animated animate__fadeInUp"
+                  data-wow-offset="150"
+                  data-wow-delay="0.6s"
+                >
                   <div class="save_time_card">
                     {" "}
                     <span class="icon feature_box_col_two">
@@ -886,9 +871,11 @@ function Home({ authorized }) {
                     </p>
                   </div>
                 </div>
-                <div class="col-lg-4 col-sm-6  wow animate__animated animate__fadeInUp"
-              data-wow-offset="150"
-              data-wow-delay="0.8s">
+                <div
+                  class="col-lg-4 col-sm-6  wow animate__animated animate__fadeInUp"
+                  data-wow-offset="150"
+                  data-wow-delay="0.8s"
+                >
                   <div class="save_time_card">
                     {" "}
                     <span class="icon feature_box_col_three">
@@ -908,15 +895,9 @@ function Home({ authorized }) {
 
         {/* Footer Design */}
 
-        <div
-          className="container-fluid home_section_5"
-          
-        >
+        <div className="container-fluid home_section_5">
           <footer className="text-center text-lg-start text-white">
-            <section
-              className="d-flex justify-content-between p-4 home_section_5_section"
-             
-            >
+            <section className="d-flex justify-content-between p-4 home_section_5_section">
               <div className="me-5">
                 <span>Gets connected with us on social networks:</span>
               </div>
@@ -945,11 +926,10 @@ function Home({ authorized }) {
               <div className="container text-center text-md-start mt-5">
                 <div className="row mt-3">
                   <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                    <h6 className="text-uppercase fw-bold">Profile Generator</h6>
-                    <hr 
-                      className="mb-4 mt-0 d-inline-block mx-auto footer_hr"
-                     
-                    />
+                    <h6 className="text-uppercase fw-bold">
+                      Profile Generator
+                    </h6>
+                    <hr className="mb-4 mt-0 d-inline-block mx-auto footer_hr" />
                     <p>
                       Here you can use rows and columns to organize your footer
                       content. Lorem ipsum dolor sit amet, consectetur
@@ -958,40 +938,31 @@ function Home({ authorized }) {
                   </div>
                   <div className="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                     <h6 className="text-uppercase fw-bold">Products</h6>
-                    <hr
-                      className="mb-4 mt-0 d-inline-block mx-auto footer_hr"
-                     
-                    />
+                    <hr className="mb-4 mt-0 d-inline-block mx-auto footer_hr" />
                     <p>
                       <a href="#!" className="text-white">
-                      Products-1
+                        Products-1
                       </a>
                     </p>
                     <p>
                       <a href="#!" className="text-white">
-                      Products-2
-
+                        Products-2
                       </a>
                     </p>
                     <p>
                       <a href="#!" className="text-white">
-                      Products-3
-
+                        Products-3
                       </a>
                     </p>
                     <p>
                       <a href="#!" className="text-white">
-                      Products-4
-
+                        Products-4
                       </a>
                     </p>
                   </div>
                   <div className="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                     <h6 className="text-uppercase fw-bold">Useful links</h6>
-                    <hr
-                      className="mb-4 mt-0 d-inline-block mx-auto footer_hr"
-                     
-                    />
+                    <hr className="mb-4 mt-0 d-inline-block mx-auto footer_hr" />
                     <p>
                       <a href="#!" className="text-white">
                         Link-1
@@ -999,40 +970,34 @@ function Home({ authorized }) {
                     </p>
                     <p>
                       <a href="#!" className="text-white">
-                      Link-2
-
+                        Link-2
                       </a>
                     </p>
                     <p>
                       <a href="#!" className="text-white">
-                      Link-3
-
+                        Link-3
                       </a>
                     </p>
                     <p>
                       <a href="#!" className="text-white">
-                      Link-4
-
+                        Link-4
                       </a>
                     </p>
                   </div>
                   <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     <h6 className="text-uppercase fw-bold">Contact</h6>
-                    <hr
-                      className="mb-4 mt-0 d-inline-block mx-auto footer_hr"
-                     
-                    />
-                    <p style={{textAlign:'left'}}>
+                    <hr className="mb-4 mt-0 d-inline-block mx-auto footer_hr" />
+                    <p style={{ textAlign: "left" }}>
                       <i className="fas fa-home mr-3"></i> New York, NY 10012,
                       US
                     </p>
-                    <p style={{textAlign:'left'}}>
+                    <p style={{ textAlign: "left" }}>
                       <i className="fas fa-envelope mr-3"></i> info@example.com
                     </p>
-                    <p style={{textAlign:'left'}}>
+                    <p style={{ textAlign: "left" }}>
                       <i className="fas fa-phone mr-3"></i> + 01 234 567 88
                     </p>
-                    <p style={{textAlign:'left'}}>
+                    <p style={{ textAlign: "left" }}>
                       <i className="fas fa-print mr-3"></i> + 01 234 567 89
                     </p>
                   </div>
@@ -1042,11 +1007,15 @@ function Home({ authorized }) {
             <section className="">
               <div className="container text-center text-md-start mt-5">
                 <div className="row mt-3">
-                  <div className="col-md-12 
+                  <div
+                    className="col-md-12 
                 wow animate__animated animate__fadeInUp"
-              data-wow-offset="0"
-              data-wow-delay="0.8s ">
-                    <p className="text-muted">Copyright © 2023 ProfileGenerator</p>
+                    data-wow-offset="0"
+                    data-wow-delay="0.8s "
+                  >
+                    <p className="text-muted">
+                      Copyright © 2023 ProfileGenerator
+                    </p>
                   </div>
                 </div>
               </div>

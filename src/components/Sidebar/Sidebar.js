@@ -4,7 +4,8 @@ import { useLocation, NavLink } from "react-router-dom";
 import { Nav } from "react-bootstrap";
 
 import logo from "../../assets/img/profile_img.jpg";
-import site from "../../assets/img/xxx2.png"; 
+import site from "../../assets/img/profileGenerator2.png";
+
 
 
 // Getting Loggedin user Name and Email

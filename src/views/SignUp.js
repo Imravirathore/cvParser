@@ -3,7 +3,8 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
-import site from "../assets/img/site_logo_2.png";
+import site from "../assets/img/profileGenerator.png";
+
 import Form from "react-bootstrap/Form";
 import { Link, useHistory } from "react-router-dom";
 import { useFormik } from "formik";
@@ -18,6 +19,9 @@ import { ToastContainer, toast } from "react-toastify";
 
 
 function SignUp() {
+  const [loading, setLoading] = useState(false);
+  const [buttonText, setButtonText] = useState("Create Account"); // Add button text state
+  const [buttonColor, setButtonColor] = useState("#405cf5"); // Add button color state
 //History
 let history = useHistory();
 
@@ -37,7 +41,7 @@ const responseGoogle = (response) => {
   };
   // console.log('first name is',first_name);
 
-  fetch(`http://127.0.0.1:8000/register/`, {
+  fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -86,6 +90,9 @@ const responseGoogle = (response) => {
     initialValues: formInitialValues,
     validationSchema: SignUpSchema,
     onSubmit: (values,action) => {
+      setLoading(true);
+      setButtonText("Please wait"); // Update button text
+      setButtonColor("#ccc"); // Update button color
       const user = {
         first_name: values.first_name,
         last_name: values.last_name,
@@ -95,22 +102,31 @@ const responseGoogle = (response) => {
         password1: values.password1,
         
       };
-      // console.log('first name is',first_name);
+        
+// Fetch Api for Register
+fetch(`${process.env.REACT_APP_BASE_URL}register/`, {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json",
+  },
+  body: JSON.stringify(user),
+})
+  .then((response) => response.json())
+  .then((data) => {
+    setLoading(false);
+    setButtonText("Create Account"); // Reset button text
+    setButtonColor("#2ddb81"); // Reset button color
+    history.push("/signIn"); // Redirect to the sign-in page
+  })
+  .catch((e) => {
+    console.log("errors", e);
+    setLoading(false);
+    setButtonText("Create Account"); // Reset button text
+    setButtonColor("#2ddb81"); // Reset button color
+  });
 
-      fetch(`http://127.0.0.1:8000/register/`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-        })
-        .catch((e) => {
-          console.log("errors", e);
-        });
-        action.resetForm();
+
+     
     },
   });
 
@@ -133,7 +149,7 @@ const responseGoogle = (response) => {
       pauseOnHover
       theme="light"
     />
-        <Row style={{ backgroundColor: "red" }}>
+        <Row style={{ backgroundColor: "" }}>
           <Col
             md={6}
             style={{
@@ -147,8 +163,8 @@ const responseGoogle = (response) => {
               src={site}
               alt=""
               srcset=""
-              width="60"
-              style={{ marginLeft: "50px" }}
+              width="150"
+              style={{ marginLeft: "50px",marginTop:'-50px' }}
             />
 
             <div
@@ -190,7 +206,7 @@ const responseGoogle = (response) => {
                     cursor: "pointer",
                   }}
                 >
-                  <Link to="/signin"> Sign In </Link>
+                  <Link to="/signin" className='sign_up_link'> Sign In </Link>
                 </span>{" "}
               </p>
             </div>
@@ -204,6 +220,8 @@ const responseGoogle = (response) => {
               backgroundColor: "#212221",
               padding: "40px",
               height: "100vh",
+              fontFamily: "Nunito Sans"
+
             }}
           >
             <Form onSubmit={formik.handleSubmit}>
@@ -372,25 +390,28 @@ const responseGoogle = (response) => {
               </Row>
 
               <Button
-                variant="primary btn-block"
-                type="submit"
-                style={{
-                  backgroundColor: "#2ddb81",
-                  color: "#fff",
-                  border: "none",
-                  margin: "30px 0",
-                }}
-              >
-                Create Account
-              </Button>
+              variant="primary btn-block"
+              type="submit"
+              style={{
+                backgroundColor: buttonColor, // Use button color state
+                color: "#fff",
+                border: "none",
+                margin: "30px 0",
+              }}
+              disabled={loading} // Disable the button while loading
+            >
+              {loading ? "Please wait..." : buttonText} {/* Use button text state */}
+            </Button>
 
+          
               <GoogleLogin
-              clientId="181864207142-s4slltikflq119c40chqt343foit1gga.apps.googleusercontent.com"
+              clientId="986930600127-u1qbih3n80r8qr720o2a77ja0hnouq3c.apps.googleusercontent.com"
               buttonText="Sign Up With Google"
               onSuccess={responseGoogle}
               onFailure={responseGoogle}
               cookiePolicy={'single_host_origin'}
             />
+        
             </Form>
          
 

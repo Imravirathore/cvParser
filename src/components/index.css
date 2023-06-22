@@ -511,6 +511,9 @@ body {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   outline: none;
+  font-family: "Nunito Sans";
+
+
 }
 
 .signin_form:focus {
@@ -1556,6 +1559,8 @@ font-size: 30px;
 .home_section_5
 {
   background-color: #000000;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .home_section_5_section
@@ -1610,11 +1615,7 @@ font-size: 30px;
 }
 .sidebar .nav li.active .nav-link, body > .navbar-collapse .nav li.active .nav-link
 {
-  background:-webkit-linear-gradient(
-    left,
-    rgb(72 94 203) 0%,
-    rgb(51 73 155) 60%
-  )
+  background-color: #405cf5;
 }
 
 .sidebar .nav li .nav-link p, body > .navbar-collapse .nav li .nav-link p
@@ -1623,6 +1624,19 @@ font-size: 30px;
   font-size: 15px;
   font-family: "Nunito Sans";
 
+}
+.profile_content h6
+{
+  font-family: "Nunito Sans";
+  text-transform: capitalize;
+  font-size: 17px;
+}
+
+.profile_content p
+{
+  font-family: "Nunito Sans";
+  font-size: 15px;
+  font-weight: 100;
 
 }
 
@@ -1637,4 +1651,251 @@ font-size: 30px;
 .modal-content
 {
   background-color: #1b1b1b;
+}
+
+/*  Admin Navbar Pricing Table Starts */
+
+.snip1517 {
+  font-family: 'Source Sans Pro', Arial, sans-serif;
+  color: #ffffff;
+  text-align: left;
+  font-size: 16px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0px 10px;
+}
+
+.snip1517 img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  z-index: -1;
+}
+
+.snip1517 .plan {
+  margin: 0 0.5%;
+  width: 24%;
+  padding-top: 10px;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  background-color: #222f3d;
+  border-radius: 8px;
+}
+
+.snip1517 .plan:hover i,
+.snip1517 .plan.hover i {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
+.snip1517 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.25s ease-out;
+  transition: all 0.25s ease-out;
+}
+
+.snip1517 header {
+  color: #ffffff;
+}
+
+.snip1517 .plan-title {
+  line-height: 60px;
+  position: relative;
+  margin: 0;
+  padding: 0 20px;
+  font-size: 1.6em;
+  letter-spacing: 2px;
+  font-weight: 700;
+}
+
+.snip1517 .plan-title:after {
+  position: absolute;
+  content: '';
+  top: 100%;
+  left: 20px;
+  width: 30px;
+  height: 3px;
+  background-color: #fff;
+}
+
+.snip1517 .plan-cost {
+  padding: 0 20px;
+  margin: 0;
+}
+
+.snip1517 .plan-price {
+  font-weight: 400;
+  font-size: 2.8em;
+  margin: 10px 0;
+  display: inline-block;
+}
+
+.snip1517 .plan-type {
+  opacity: 0.8;
+  font-size: 0.7em;
+  text-transform: uppercase;
+}
+
+.snip1517 .plan-features {
+  padding: 0 0 20px;
+  margin: 0;
+  list-style: outside none none;
+  font-size: 0.9em;
+}
+
+.snip1517 .plan-features li {
+  padding: 8px 20px;
+}
+
+.snip1517 .plan-features i {
+  margin-right: 8px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.snip1517 .plan-select {
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  text-align: center;
+}
+
+.snip1517 .plan-select a {
+  background-color: #156dab;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 20px;
+  font-size: 0.75em;
+  font-weight: 600;
+  border-radius: 8px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  display: inline-block;
+}
+
+.snip1517 .plan-select a:hover {
+  background-color: #1b8ad8 !important;
+}
+
+.snip1517 .featured {
+  margin-top: -10px;
+  z-index: 1;
+  border-radius: 8px;
+  border: 2px solid #156dab;
+  background-color: #156dab;
+}
+
+.snip1517 .featured .plan-select {
+  padding: 30px 20px;
+}
+
+.snip1517 .featured .plan-select a {
+  background-color: #10507e;
+}
+
+@media only screen and (max-width: 767px) {
+  .snip1517 .plan {
+    width: 49%;
+    margin: 0.5%;
+  }
+  .snip1517 .plan-title,
+  .snip1517 .plan-select a {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+  }
+  .snip1517 .plan-select,
+  .snip1517 .featured .plan-select {
+    padding: 20px;
+  }
+  .snip1517 .featured {
+    margin-top: 0;
+  }
+  .snip1517 .featured header {
+    line-height: 70px;
+  }
+}
+
+@media only screen and (max-width: 440px) {
+  .snip1517 .plan {
+    margin: 0.5% 0;
+    width: 100%;
+  }
+}
+
+
+/*  Admin Navbar Pricing Table Ends */
+
+
+.generate_my_profile
+{
+  background: -webkit-linear-gradient(
+    left,
+    rgb(72 94 203) 0%,
+    rgb(51 73 155) 60%
+  );
+  color: #fff;
+  font-family: "Nunito Sans";
+
+  border: none;
+}
+
+.generate_my_profile:hover
+{
+  color: #fff;
+
+}
+
+/* Forgot Password CSS Starts */
+.forgor_icon
+{
+  color: rgb(255, 255, 255);
+  background: -webkit-linear-gradient(
+    left,
+    rgb(72 94 203) 0%,
+    rgb(51 73 155) 60%
+  );
+  border-radius: 50px;
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  line-height: 100px;
+  font-size: 30px;
+  margin: 20px 0;
+}
+
+.forgot_pswrd_heading h5
+{
+  color: rgb(255, 255, 255);
+  font-family: "Nunito Sans";
+  font-size: 22px;
+}
+
+.forgot_pswrd_para p
+{
+  color: gray;
+  font-family: "Nunito Sans";
+
+}
+
+/* Forgot Password CSS Ends */
+
+/* Inner Princing CSS */
+.inner_pricing
+{
+  color: #fff;
+}
+.inner_pricing:hover
+{
+  color: #fff;
+
+}
+/* inner pricing CSS */
+
+/* Sign Up and SIgn in page styling */
+
+.sign_up_link
+{
+  color: #405cf5;
+  font-weight: bold;
 }

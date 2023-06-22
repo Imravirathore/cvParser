@@ -16,9 +16,13 @@ import {
 function Loader() {
   return (
     <>
-    <div className="loader-container">
-     <Spinner style={{color:'red'}} animation="border" role="status" />
-  </div>
+      <div className="loader-container">
+        <Spinner
+          style={{ color: "#405cf5" }}
+          animation="border"
+          role="status"
+        />
+      </div>
     </>
   );
 }
